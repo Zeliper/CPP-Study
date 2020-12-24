@@ -39,19 +39,18 @@ void wfile() {
 		exit(1);
 	}
 	cout << "Type any data to save" << endl;
-	char* INPUT;
-	cin>> INPUT;
+	char* INPUT[];
+	cin>> INPUT[];
 	outFile<<INPUT<<endl;
 	outFile.close();
 	cout << " Complete ! " << endl;
-	return outFile;
 
 }
 
 //텍스트 파일의 문자열을 읽는 함수
 void rfile() {
 	wfile();
-	ofstream.outFile;
+	ofstream outFile;
 	outFile.open("data.txt");
 	cout << outFile << endl;
 	//cout << 

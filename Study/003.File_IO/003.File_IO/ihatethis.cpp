@@ -40,17 +40,19 @@ int printMenu() {
 
 //텍스트 파일에 문자열을 쓰는 함수
 void wfile() {
+
 	ofstream outFile;
 	outFile.open("data.txt");
 	if(outFile.fail()){
 		cout << "Failed to Open file" << endl;
 		exit(1);
 	}
+	
 	cout << "Type any data to save" << endl;
 	string input;
-	cin >> input;
-	outFile<<input;
-	//outFile.save(); 집가서 수정 
+	cin >> input;	
+	outfile("data.txt") << input;
+	
 	outFile.close();
 	cout << " Complete ! " << endl;
 	printMenu();
@@ -60,7 +62,7 @@ void wfile() {
 //텍스트 파일의 문자열을 읽는 함수
 void rfile() {
 	ofstream outFile;
-	outFile.open("data.txt");
+	outFile.open("data.txt",ios::out);
 	cout << outFile<<endl;
 	cout<< " Data Load Success. " << endl;
 	printMenu();

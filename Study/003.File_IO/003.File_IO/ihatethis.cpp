@@ -18,7 +18,7 @@ MEMO:
 
 //화면 지우는 함수
 void clr(){ 
-	cout << "\033[2J\033[1;1H"; 
+	cout << "\033[2J\033[1;1H"<<endl; 
 }
 
 //메뉴를 화면에 출력하는 함수 (입력도 여기서 받는다)
@@ -32,7 +32,7 @@ int printMenu() {
 	if(input==3) clr();
 	else { 
 	cout << "!" << endl;
-	printMenu();
+	return 0;
 	}
 		
 
@@ -47,11 +47,10 @@ void wfile() {
 		exit(1);
 	}
 	cout << "Type any data to save" << endl;
-	char INPUT[SIZE+1];
-	for(int i=0;i<SIZE;i++){
-		cin>> INPUT[i];
-	}
-	outFile<<INPUT<<endl;
+	string input;
+	cin >> input;
+	outFile<<input;
+	//outFile.save(); 집가서 수정 
 	outFile.close();
 	cout << " Complete ! " << endl;
 	printMenu();
@@ -62,14 +61,15 @@ void wfile() {
 void rfile() {
 	ofstream outFile;
 	outFile.open("data.txt");
-	cout << data.txt << endl;
+	cout << outFile<<endl;
+	cout<< " Data Load Success. " << endl;
 	printMenu();
 	//cout << 
 }
 
 //반복문을 사용하여 프로그램이 하나의 동작이후 꺼지지 않도록 한다.
 int main(void) {
-	printMenu();
+
 	if(printMenu()==1)
 		wfile();
 	else if(printMenu()==2)

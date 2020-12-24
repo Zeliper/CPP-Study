@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#define SIZE 5
 
 using namespace std;
 
@@ -21,12 +22,19 @@ void clr(){
 }
 
 //메뉴를 화면에 출력하는 함수 (입력도 여기서 받는다)
-int printMenu(void) {
+int printMenu() {
 	
 	cout << "Type 1 or 2. : ";
 	int input;
 	cin >>input;
-	return input; 
+	if(input==1) wfile();
+	if(input==2) rfile();
+	if(input==3) clr();
+	else { 
+	cout << "!" << endl;
+	printMenu();
+	}
+		
 
 }
 
@@ -39,29 +47,33 @@ void wfile() {
 		exit(1);
 	}
 	cout << "Type any data to save" << endl;
-	char* INPUT[];
-	cin>> INPUT[];
+	char INPUT[SIZE+1];
+	for(int i=0;i<SIZE;i++){
+		cin>> INPUT[i];
+	}
 	outFile<<INPUT<<endl;
 	outFile.close();
 	cout << " Complete ! " << endl;
+	printMenu();
 
 }
 
 //텍스트 파일의 문자열을 읽는 함수
 void rfile() {
-	wfile();
 	ofstream outFile;
 	outFile.open("data.txt");
-	cout << outFile << endl;
+	cout << data.txt << endl;
+	printMenu();
 	//cout << 
 }
 
 //반복문을 사용하여 프로그램이 하나의 동작이후 꺼지지 않도록 한다.
 int main(void) {
+	printMenu();
 	if(printMenu()==1)
 		wfile();
 	else if(printMenu()==2)
 		rfile();
-	return printMenu;
+	return printMenu();
 	
 }
